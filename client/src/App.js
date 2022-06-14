@@ -1,10 +1,10 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
-import SearchBooks from './pages/SearchBooks';
-import SavedBooks from './pages/SavedBooks';
-import Navbar from './components/Navbar';
+import SearchBooks from "./pages/SearchBooks";
+import SavedBooks from "./pages/SavedBooks";
+import Navbar from "./components/Navbar";
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -26,15 +26,15 @@ const client = new ApolloClient({
 //       <>
 //         <Navbar />
 //         <Routes>
-//           <Route 
-//             path='/' 
-//             element={<SearchBooks />} 
+//           <Route
+//             path='/'
+//             element={<SearchBooks />}
 //           />
-//           <Route 
-//             path='/saved' 
-//             element={<SavedBooks />} 
+//           <Route
+//             path='/saved'
+//             element={<SavedBooks />}
 //           />
-//           <Route 
+//           <Route
 //             path='*'
 //             element={<h1 className='display-2'>Wrong page!</h1>}
 //           />
@@ -51,9 +51,12 @@ function App() {
         <>
           <Navbar />
           <Routes>
-            <Route exact path="/" component={SearchBooks} />
-            <Route exact path="/saved" component={SavedBooks} />
-            <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
+            <Route exact path="/" element={<SearchBooks />} />
+            <Route exact path="/saved" element={<SavedBooks />} />
+            <Route
+              path="*"
+              element={<h1 className="display-2">Wrong page!</h1>}
+            />
           </Routes>
         </>
       </Router>
@@ -62,4 +65,3 @@ function App() {
 }
 
 export default App;
-
